@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AGROHUB</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background-color: #f8f8f8;
+        transition: background-color 0.5s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding-top: 60px;
+        transition: width 0.5s;
+        overflow-x: hidden;
+        color: white;
+        z-index: 2;
+    }
+    .sidebar a {
+        padding: 15px 25px;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        display: block;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .sidebar a:hover {
+        background-color: #575757;
+        transform: translateX(10px);
+    }
+    .content {
+        padding: 40px 20px;
+        text-align: center;
+        transition: margin-left 0.5s ease;
+        position: relative;
+        z-index: 1;
+    }
+    .openbtn {
+        font-size: 24px;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 15px 20px;
+        border: none;
+        font-family: 'Poppins', sans-serif;
+        transition: background-color 0.3s, transform 0.3s;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 3;
+    }
+    .openbtn:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        transform: scale(1.1);
+    }
+    h1 {
+        font-size: 120px; /* Enlarged font size */
+        font-weight: 600;
+        color: black; /* Changed color to black */
+        margin-top: 0;
+        margin-bottom: 10px; /* Decrease margin bottom */
+    }
+    h1 span {
+        display: block;
+        font-size: 24px; /* Tagline font size */
+        color: black; /* Changed color to black */
+        font-weight: bold; /* Made tagline bolder */
+        margin-top: 10px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+    p {
+        font-size: 22px;
+        font-weight: 400;
+        color: #555;
+        margin-top: 10px; /* Decrease margin top */
+        margin-bottom: 20px; /* Decrease margin bottom */
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+    .bg-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+        transition: opacity 0.5s ease-in-out;
+        opacity: 0.7;
+    }
+</style>
+</head>
+<body>
+
+<div class="bg-image" style="background-image: url('island-moon-body-of-3840x2160-15995.jpg');"></div>
+
+<div class="sidebar" id="mySidebar">
+    <a href="javascript:void(0)" onclick="closeNav()">Close</a>
+    <a href="home_1.html">Home</a>
+    <a href="map.html">Map</a>
+    <a href="display_data.php">Complaints</a>
+    <a href="display_review.php">Reviews</a>
+    <a href="aboutsus.html">About</a>
+    <a href="sellerban.php">Sellers</a>
+<a href="display_buyers.php">Buyers</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+    <a href="lo.php">Logout</a>
+</div>
+
+<div class="content" id="main">
+    <button class="openbtn" onclick="openNav()">☰</button>
+    <h1 id="agrohub-title">AGROHUB</h1>
+    <p id="tagline">Your one-stop destination for all agriculture-related needs.</p>
+</div>
+
+<script>
+function openNav() {
+    document.getElementById("mySidebar").style.width = "300px";
+    document.getElementById("main").style.marginLeft = "300px";
+    document.getElementById("agrohub-title").style.marginLeft = "-100px";
+    document.getElementById("tagline").style.opacity = "1";
+    document.querySelector('.bg-image').style.opacity = "0.5";
+}
+
+function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    document.getElementById("agrohub-title").style.marginLeft = "0";
+    document.getElementById("tagline").style.opacity = "0";
+    document.querySelector('.bg-image').style.opacity = "1";
+}
+</script>
+
+</body>
+</html>

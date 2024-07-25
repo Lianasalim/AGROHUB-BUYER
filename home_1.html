@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Role</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cabin:wght@400&family=Pacifico&display=swap">
+    <style>
+        body {
+            font-family: 'Cabin', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            background: url('wallhaven-4djrmg.jpg') center/cover no-repeat; /* Set your background image */
+            background-blend-mode: overlay; /* Blend mode for the background */
+            transition: background 0.5s ease-in-out; /* Transition for the background image */
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            width: 150px; /* Increased size of the logo */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 20px;
+            mix-blend-mode: screen; /* Blend mode for the logo */
+        }
+
+        h1 {
+            font-family: 'Cabin', sans-serif;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            mix-blend-mode: lighten; /* Blend mode for the heading */
+            padding: 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.3); /* Semi-transparent white background for the heading */
+            backdrop-filter: blur(5px); /* Blur effect for the heading background */
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75); /* Text shadow for a slight stroke effect */
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 20px 40px; /* Increased padding for a larger button */
+            font-family: 'Cabin', sans-serif;
+            font-weight: bold;
+            font-size: 24px; /* Increased font size for a larger button */
+            margin: 0 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 8px; /* Adjust border-radius for a more rounded button */
+            transition: background-color 0.3s, transform 0.3s ease-in-out;
+text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .description {
+            margin-top: 30px; /* Increased margin for the description */
+            font-size: 20px; /* Increased size of the description */
+            color: #fff;
+            background: rgba(255, 255, 255, 0.3); /* Semi-transparent white background for the description */
+            padding: 15px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px); /* Blur effect for the description background */
+text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+	<div class="desc">
+        <img class="logo" src="DOC-20240312-WA0051-removebg-preview.png" alt="AgroHub Logo">
+	</div>
+        <h1>SELECT YOUR ROLE</h1>
+        <div class="buttons">
+            <button class="seller" onclick="location.href='seller/login_seller.html'">Seller</button>
+            <button class="buyer" onclick="location.href='login_buyer.html'">Buyer</button>
+            <button class="admin" onclick="location.href='loginadmin1.php'">Admin</button>
+        </div>
+        <p class="description">FARM TO FORK: UNLEASH THE FLAVOURS OF OUR FIELDS.</p>
+    </div>
+</body>
+
+</html>

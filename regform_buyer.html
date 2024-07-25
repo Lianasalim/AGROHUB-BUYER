@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buyer Registration - AGROHUB</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="valid_b.js"></script>
+    <style>
+        body {
+            background-image: url('background3.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-color: #f8f9fa;
+        }
+        .container-fluid {
+            margin-top: 20px;
+        }
+        h1 {
+            font-family: 'Arial', sans-serif;
+            color: #007b5e;
+            font-weight: bold;
+        }
+        .container {
+            margin-top: 40px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group label {
+            font-size: 14px;
+            color: black;
+            font-weight: bold;
+        }
+          .form-group input, .form-group textarea {
+            font-size: 12px;
+            border-radius: 4px;
+        }
+        .form-group p {
+            font-size: 12px;
+            color: #dc3545;
+            margin-top: 5px;
+            display: none; /* Hide by default */
+        }
+        .wrap {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .wrap button {
+            background-color: #007b5e;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        .wrap button:hover {
+            background-color: #005f46;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <center><h1>AGROHUB</h1></center>
+</div>
+<div class="container">
+    <center><h1>Buyer Registration</h1></center>
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <form id="myform" action="login_action_buyer.php" method="post">
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" name="firstname" id="firstname" class="form-control" onkeyup="validation('firstname')" placeholder="Enter your first name">
+                    <p id="error_firstname">required</p>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" name="lastname" id="lastname" class="form-control" onkeyup="validation('lastname')" placeholder="Enter your last name">
+                    <p id="error_lastname">required</p>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" onkeyup="validation('useremail')" placeholder="Enter your email">
+                    <p id="error_email">enter valid email id</p>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" onkeyup="validation('password')" placeholder="Enter your password">
+                    <p id="error_password">enter valid password</p>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" class="form-control" onkeyup="validation('confirm_password')" onfocus="cheking()" placeholder="Confirm your password">
+                    <p id="error_confirmpassword">confirm password</p>
+                </div>
+                <div class="form-group">
+                    <label for="phonenumber">Phone Number</label>
+                    <input type="number" min="100000" max="100000000000" name="phonenumber" id="phonenumber" class="form-control" onkeyup="validation('phonenumber')" placeholder="Enter your phone number">
+                    <p id="error_phonenumber">Enter phone number correctly</p>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea rows="4" name="address" id="address" class="form-control" onkeyup="validation('address')" placeholder="Enter your address"></textarea>
+                    <p id="error_address">Enter valid address</p>
+                </div>
+                <div class="wrap">
+                    <button type="submit" name="register" onclick="redirectToAMD()">REGISTER</button><br>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
+<script>
+    function validation(field) {
+        let value = document.getElementById(field).value;
+        let errorElement = document.getElementById(`error_${field}`);
+
+        switch(field) {
+            case 'firstname':
+            case 'lastname':
+                if (value.trim() === '') {
+                    errorElement.style.display = 'block';
+                } else {
+                    errorElement.style.display = 'none';
+                }
+                break;
+            case 'useremail':
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(value)) {
+                    errorElement.style.display = 'block';
+                } else {
+                    errorElement.style.display = 'none';
+                }
+                break;
+            case 'password':
+                if (value.length < 6) {
+                    errorElement.style.display = 'block';
+                } else {
+                    errorElement.style.display = 'none';
+                }
+                break;
+            case 'confirm_password':
+                let passwordValue = document.getElementById('password').value;
+                if (value !== passwordValue) {
+                    errorElement.style.display = 'block';
+                } else {
+                    errorElement.style.display = 'none';
+                }
+                break;
+            case 'phonenumber':
+                if (isNaN(value) || value.length < 10 || value.length > 12) {
+                    errorElement.style.display = 'block';
+                } else {
+                    errorElement.style.display = 'none';
+                }
+                break;
+            case 'address':
+                if (value.trim() === '') {
+                    errorElement.style.display = 'block';
+                } else {
+                    errorElement.style.display = 'none';
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    function cheking() {
+        let confirmPassword = document.getElementById('confirm_password').value;
+        validation('confirm_password');
+    }
+
+    function redirectToAMD() {
+        window.location.href = "login_buyer.html";
+    }
+</script>
+</body>
+</html>

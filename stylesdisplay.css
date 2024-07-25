@@ -1,0 +1,40 @@
+/* styles.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+.complaint-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.complaint-table th, .complaint-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.complaint-table th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.complaint-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.complaint-table tr:hover {
+    background-color: #e0e0e0;
+    transition: background-color 0.3s;
+}

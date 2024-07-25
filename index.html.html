@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGROHUB</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Playfair+Display:wght@700&display=swap">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            text-align: center;
+            color: white;
+        }
+
+        header {
+            background-color: rgba(76, 175, 80, 0.8);
+            padding: 1.5em;
+            font-size: 3em; /* Larger font size */
+            font-weight: 700; /* Added boldness */
+            letter-spacing: 2px;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        #description {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 0px;
+            padding: 1.5em; /* Decreased size slightly */
+            margin: 0em;
+            font-size: 1em; /* Decreased size slightly */
+            color: #333;
+            font-weight: bold; /* Added more boldness */
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        #getStartedBtn {
+            display: inline-block;
+            padding: 1.2em 3em;
+            margin-top: 1.5em;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.5em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        #getStartedBtn:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        #icon {
+
+            width: 250px;
+            height: 250px;
+            margin-bottom: 1em;
+	    border=1;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            z-index: -1;
+            background: url('wallhaven-4djrmg.jpg') center/cover no-repeat;
+            transition: transform 10s linear, filter 1s ease-in-out;
+        }
+
+        body:hover::before {
+            transform: translateX(-50%);
+            filter: brightness(0.8); /* Adjust brightness for the hover effect */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        AGROHUB
+    </header>
+    <div id="description">
+        <img src="DOC-20240312-WA0051-removebg-preview-bicubic.png" alt="Agro Icon" id="icon">
+        <p>WELCOME TO AGROHUB,FARM TO FORK: UNLEASH THE FLAVOURS OF OUR FIELDS.</p>
+    </div>
+    <a href="home_1.html" id="getStartedBtn">Get Started</a>
+</body>
+
+</html>
+

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Saved Addresses</title>
+  <style>
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .address-group {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Saved Addresses</h1>
+
+  <button id="add-address">Add Address</button>
+  <div id="address-container">
+    <div class="address-group">
+      <h2>Address</h2>
+      <form>
+        <div class="form-group">
+         <label>Name</label>
+          <input type="name" class="form-control"
+          placeholder="Enter your name"
+          name="name">
+        </div>
+        <div class="form-group">
+         <label>Building No:</label>
+          <input type="building no" class="form-control"
+          placeholder="Enter building no:"
+          name="building no">
+        </div>
+        <div class="form-group">
+         <label>Address</label>
+          <input type="address" class="form-control"
+          placeholder="Enter your address"
+          name="address">
+        </div>
+        <div class="form-group">
+         <label>Locality</label>
+          <input type="locality" class="form-control"
+          placeholder="Enter your locality"
+          name="locality">
+        </div>
+        <div class="form-group">
+         <label>Pin Code</label>
+          <input type="pincode" class="form-control"
+          placeholder="Enter your pincode"
+          name="pincode">
+        </div>
+        <div class="form-group">
+         <label>Phone Number</label>
+          <input type="phone number" class="form-control"
+          placeholder="Enter your phone number"
+          name="phone number">
+        </div>
+        <button type="submit" class="btn
+        btn-primary">SUBMIT</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    const addAddressBtn = document.getElementById("add-address");
+    const addressContainer = document.getElementById("address-container");
+
+    let addressCount = 1;
+
+    addAddressBtn.addEventListener("click", () => {
+      addressCount++;
+      const newAddressGroup = document.createElement("div");
+      newAddressGroup.classList.add("address-group");
+      newAddressGroup.innerHTML = `
+        <h2>Address ${addressCount}</h2>
+        <form>
+          <div class="form-group">
+            <label for="name${addressCount}">Name:</label>
+            <input type="text" id="name${addressCount}" name="name${addressCount}" required>
+          </div>
+          <div class="form-group">
+            <label for="building-no${addressCount}">Building No:</label>
+            <input type="text" id="building-no${addressCount}" name="building-no${addressCount}" required>
+          </div>
+          <div class="form-group">
+            <label for="address${addressCount}">Address:</label>
+            <input type="text" id="address${addressCount}" name="address${addressCount}" required>
+          </div>
+          <div class="form-group">
+            <label for="locality${addressCount}">Locality:</label>
+            <input type="text" id="locality${addressCount}" name="locality${addressCount}" required>
+          </div>
+          <div class="form-group">
+            <label for="pin-code${addressCount}">Pin Code:</label>
+            <input type="text" id="pin-code${addressCount}" name="pin-code${addressCount}" required>
+          </div>
+          <div class="form-group">
+            <label for="phone-number${addressCount}">Phone Number:</label>
+            <input type="text" id="phone-number${addressCount}" name="phone-number${addressCount}" required>
+          </div>
+ <button type="submit">Add</button>
+        </form>
+      `;
+      addressContainer.appendChild(newAddressGroup);
+    });
+  </script>
+</body>
+</html>
